@@ -33,7 +33,7 @@ def signup(request):
 
                 return render(request, "userauth/login.html")
         else:
-            return HttpResponse('form not valid')
+            return HttpResponse('form not valid coeg')
 
 
     else:
