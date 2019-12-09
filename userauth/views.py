@@ -15,7 +15,7 @@ def signup(request):
             try:
                 check_user = User.objects.get(email=form.cleaned_data.get('email'))     # email already exists !
                 form = RegisterForm()
-                email_warning = "Email already exist! Please use another email, or login."
+                email_warning = "Email already exist! Please use another email, or login!"
                 return render(request, "userauth/signup.html",context={"form": form, "email_warning": email_warning})
 
             except:
@@ -33,7 +33,7 @@ def signup(request):
 
                 return render(request, "userauth/login.html")
         else:
-            return HttpResponse('form not valid coeg')
+            return HttpResponse('form not valid coeg nani kore')
 
 
     else:
