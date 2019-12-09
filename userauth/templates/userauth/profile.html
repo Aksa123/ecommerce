@@ -1,0 +1,26 @@
+{% extends "about/base.html" %}
+
+{% block content %}
+    <div class="container-fluid">
+        <h2>Profile</h2>
+        <br><br>
+
+        {% if warning %}
+            <label>{{ warning }}</label>
+        {% endif %}
+        
+        <form action="{% url 'auth:profile' %}" method="post" class="form-group">
+            {% csrf_token %}
+            <div class="col-md-4 mb-3">
+                
+               {{profile}}
+                <br>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+
+
+
+    </div>
+
+{% endblock %}

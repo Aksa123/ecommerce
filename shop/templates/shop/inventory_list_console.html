@@ -1,0 +1,50 @@
+{% extends 'about/base.html' %}
+
+{% block content %}
+<div class='container-fluid'>
+    <h2>Inventory</h2>
+    <br>
+    
+    <form action="{% url 'shop:list_console' %}" method="post" class="form-inline my-2 my-lg-0">
+    {% csrf_token %}
+        <select name="type" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <option value="all" selected>All</option>
+            <option value="name">Name</option>
+            <option value="manufacturer">Manufacturer</option>
+        </select>
+        <input type="text" name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search here...">
+        <input type="submit" value="Search" class="btn btn-outline-success my-2 my-sm-0">
+    </form>
+
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Console</th>
+            <th scope="col">Series</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Release Date</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in consoles %}
+            
+            <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{item.name}}</td>
+            <td>{{item.series}}</td>
+            <td>{{item.manufacturer}}</td>
+            <td>{{item.release_date}}</td>
+            <td>{{item.quantity}}</td>
+            <td>${{item.price}}</td>
+            </tr>
+           
+           {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

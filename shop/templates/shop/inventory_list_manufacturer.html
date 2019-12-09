@@ -1,0 +1,31 @@
+{% extends 'about/base.html' %}
+
+{% block content %}
+<div class='container-fluid'>
+    <h2>Inventory</h2>
+    <br>
+
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in manufacturers %}
+            
+            <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{item.name}}</td>
+            <td>{{item.country}}</td>
+            </tr>
+           
+           {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}
